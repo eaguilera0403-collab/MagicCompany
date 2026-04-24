@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concept Art</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #d6c7f5, #eee6ff);
+}
+
+/* MENU LATERAL - Igualado al código de Proyectos */
+#side-menu{
+    position:fixed;
+    top:0;
+    left: 0; /* Cambiado para usar width 0 en el script */
+    width: 0; 
+    height:100%;
+    background: rgba(157,102,255,0.95);
+    transition:0.5s;
+    padding-top:60px;
+    z-index:100;
+    overflow-x: hidden; /* Importante para que la X no se vea cuando está cerrado */
+}
+
+#side-menu a{
+    display:block;
+    padding:15px 30px;
+    color:white;
+    text-decoration:none;
+    font-size:20px;
+    font-weight: bold;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+#side-menu a:hover {
+    background-color: white;
+    color: #9d66ff;
+}
+
+/* --- TAMAÑO DE LA X IGUALADO A PROYECTOS --- */
+#side-menu .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* HEADER */
+.header{
+    position:relative;
+    height:130px;
+}
+
+.header img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* BOTÓN DE REGRESO (TRIÁNGULO AZUL) */
+.btn-back{
+    position:absolute;
+    top:15px;
+    left:15px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 25px solid blue; 
+    cursor:pointer;
+    z-index: 10;
+}
+
+/* HAMBURGUESA */
+.btn-menu{
+    position:absolute;
+    top:140px;
+    left:15px;
+    width:40px;
+    height:40px;
+    background:white;
+    border:none;
+    border-radius:5px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:4px;
+    cursor:pointer;
+    z-index: 5;
+}
+
+.btn-menu span{
+    width:22px;
+    height:3px;
+    background:#9d66ff;
+}
+
+/* CONTENEDOR */
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+/* TITULO */
+h1{
+    text-align:center;
+    color:#b36bff;
+    font-size:34px;
+    margin:25px 0;
+}
+
+/* CARD */
+.card{
+    background: linear-gradient(135deg,#9d66ff,#7a4ce0);
+    padding:25px;
+    color:white;
+    border-radius:10px;
+    margin:0 auto 30px auto;
+    text-align:center;
+    max-width:650px;
+}
+
+.card img{
+    width:100%;
+    max-width:320px;
+    border:6px solid white;
+    margin-top:20px;
+}
+
+.card p{
+    line-height:1.6;
+}
+
+/* BOTON SECCIÓN */
+.section-btn{
+    display:block;
+    margin:25px auto;
+    background:#8c5bff;
+    color:white;
+    padding:14px 20px;
+    font-weight:bold;
+    text-align:center;
+    width:240px;
+}
+
+/* GRID PROYECTOS */
+.projects{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+.project{
+    background: linear-gradient(135deg,#9d66ff,#7a4ce0);
+    padding:15px;
+    border-radius:10px;
+    color:white;
+    text-align:center;
+    box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
+
+.project img{
+    width:100%;
+    max-width:260px;
+    border:6px solid white;
+    margin-bottom:10px;
+}
+
+.project p{
+    font-size:14px;
+    line-height:1.5;
+}
+
+/* GRID 2x2 */
+@media(min-width:768px){
+    .projects{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+/* FOOTER */
+.footer{
+    background-image:url('imagenes/ConceptArt/FondoMosaico2.png');
+    background-size:cover;
+    background-position:center;
+    height:130px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.icons{
+    display:flex;
+    gap:25px;
+}
+
+.icons a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons img{
+    width:55px;
+    transition:0.3s;
+    cursor: pointer;
+}
+
+.icons img:hover{
+    transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div id="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">INICIO</a>
+    <a href="mision.html">MISIÓN</a>
+    <a href="disenadores.html">DISEÑADORES</a>
+    <a href="proyectos.html">PROYECTOS</a> 
+</div>
+
+<div class="header">
+    <img src="imagenes/ConceptArt/FondoMosaico.png">
+
+    <div class="btn-back" onclick="history.back()"></div>
+
+    <button class="btn-menu" onclick="openNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</div>
+
+<div class="container">
+
+    <h1>CONCEPT ART</h1>
+
+    <div class="card">
+        <p>
+        El concept art es la base visual de cada mundo que creamos. Desarrollamos ilustraciones detalladas que definen la atmósfera, el estilo artístico y el diseño de entornos o elementos, transformando ideas abstractas en guías visuales sólidas para la producción de videojuegos y cine.
+        </p>
+        <img src="imagenes/ConceptArt/FondoNq.png">
+    </div>
+
+    <div class="section-btn">NUESTROS PROYECTOS</div>
+
+    <div class="projects">
+
+        <div class="project">
+            <img src="imagenes/ConceptArt/FondoAjo.png">
+            <p>
+            Concept art de producto aplicado en un soju de fresa con estética kawaii. Define el diseño de etiqueta fusionando marca de consumo, personaje de anime y paleta vibrante.
+            </p>
+        </div>
+
+        <div class="project">
+            <img src="imagenes/ConceptArt/FondoLata.png">
+            <p>
+            Concept art de producto aplicado en un frasco de chiles con estética elegante y minimalista. Etiqueta limpia que fusiona identidad de marca con una paleta sobria y refinada, tipografía moderna y composición equilibrada para transmitir calidad y sofisticación.
+            </p>
+        </div>
+
+        <div class="project">
+            <img src="imagenes/ConceptArt/FondoOff.png">
+            <p>
+            Concept art de prenda streetwear inspirado en el artista Feid y la estética de Off-White. Diseño gráfico aplicado en la parte posterior de playera, integrando composición radial, personajes ilustrados tipo doodle y paleta verde-azul vibrante para reinterpretar el lenguaje visual urbano y contemporáneo.
+            </p>
+        </div>
+
+        <div class="project">
+            <img src="imagenes/ConceptArt/FondoPausa.png">
+            <p>
+            Concept art de póster escolar para un espacio de descanso seguro. Integra un entorno natural con un árbol como símbolo de calma y un personaje kawaii que conecta con los estudiantes. Usa una paleta en verdes y azules para transmitir tranquilidad, invitando a disfrutar las horas libres en un ambiente relajado y sin riesgos.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <div class="icons">
+        <a href="https://www.facebook.com" target="_blank">
+            <img src="imagenes/ConceptArt/LogoFb.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="imagenes/ConceptArt/LogoIG.png" alt="Instagram">
+        </a>
+        <a href="https://wa.me/" target="_blank">
+            <img src="imagenes/ConceptArt/LogoWa.png" alt="WhatsApp">
+        </a>
+    </div>
+</div>
+
+<script>
+function openNav(){
+    /* Cambiado a .width para que coincida con la lógica de Proyectos */
+    document.getElementById("side-menu").style.width = "250px";
+    document.body.style.overflow="hidden";
+}
+
+function closeNav(){
+    document.getElementById("side-menu").style.width = "0";
+    document.body.style.overflow="auto";
+}
+</script>
+
+</body>
+</html>

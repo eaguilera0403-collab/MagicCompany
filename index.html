@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Magic Company</title>
+
+<style>
+    *{margin: 0; padding: 0; box-sizing: border-box;}
+
+    body {
+        background-color: #f3e8ff;
+        background-image: url('imagenes/Index/IndexFondo.png'); 
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* --- MENÚ LATERAL (FUNCIONALIDAD) --- */
+    #side-menu {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        background-color: rgba(157, 102, 255, 0.95);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    }
+
+    #side-menu a {
+        padding: 15px 30px;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        display: block;
+        transition: 0.3s;
+        font-weight: bold;
+    }
+
+    #side-menu a:hover {
+        background-color: white;
+        color: #9d66ff;
+    }
+
+    #side-menu .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    /* --- CONTENEDOR PRINCIPAL --- */
+    #container {
+        width: 100%;
+        max-width: 500px; 
+        padding: 20px;
+        text-align: center;
+    }
+
+    header { 
+        width: 100%;
+        position: relative; 
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        margin-bottom: 30px;
+        min-height: 80px;
+    }
+    
+    .btn-menu {
+        position: absolute;
+        left: 0;
+        width: 45px;
+        height: 45px;
+        background-color: white; 
+        border: none;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 5;
+    }
+
+    .btn-menu span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #9d66ff; 
+        border-radius: 2px;
+    }
+
+    .logo-principal {
+        width: 90%; 
+        height: auto;
+    }
+
+    .section-title {
+        background-color: #9d66ff;
+        color: white;
+        display: inline-block;
+        padding: 10px 25px;
+        border-radius: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: -15px;
+        position: relative;
+        z-index: 2;
+        text-transform: uppercase;
+    }
+
+    .card {
+        background-color: rgba(186, 145, 255, 0.7);
+        border-radius: 10px;
+        padding: 30px 15px 20px 15px;
+        margin-bottom: 40px;
+        display: block; 
+        text-align: justify;
+    }
+
+    .img-frame {
+        background: white;
+        padding: 5px;
+        border-radius: 5px;
+        width: 45%; 
+    }
+
+    .img-left {
+        float: left;
+        margin-right: 15px;
+        margin-bottom: 5px;
+    }
+
+    .img-right {
+        float: right;
+        margin-left: 15px;
+        margin-bottom: 5px;
+    }
+
+    .img-frame img {
+        width: 100%;
+        display: block;
+    }
+
+    .card p {
+        color: white;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 50px;
+        align-items: center;
+    }
+
+    .btn {
+        background-color: #e5b6f5;
+        color: #6a0dad;
+        text-decoration: none;
+        padding: 15px;
+        width: 250px;
+        border-radius: 8px;
+        font-weight: bold;
+        text-align: center;
+        box-shadow: 0 4px 0px #d49ce8;
+    }
+
+    footer {
+        width: 100%;
+        background-image: url('imagenes/Index/IndexFondocolores.png');
+        background-size: cover;
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .social-icon {
+        width: 60px;
+        height: 60px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .social-icon img { width: 70%; }
+
+</style>
+</head>
+
+<body>
+
+<div id="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">INICIO</a>
+    <a href="mision.html">MISIÓN</a>
+    <a href="disenadores.html">DISEÑADORES</a>
+    <a href="proyectos.html">PROYECTOS</a>
+</div>
+
+<div id="container">
+
+    <header>
+        <button class="btn-menu" onclick="openNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <img src="imagenes/Index/IndexLogoprincipal.png" class="logo-principal">
+    </header>
+
+    <div class="section-title">¿QUIÉNES SOMOS?</div>
+    <div class="card">
+        <div class="img-frame img-left">
+            <img src="imagenes/Index/IndexImagen1.jpg">
+        </div>
+        <p>Magic Company es un estudio creativo de alta tecnología que fusiona el arte digital con la narrativa para dar vida a proyectos innovadores. Nuestra plataforma destaca por una estética moderna y profesional, especializada en diseño de personajes, modelado 3D y efectos visuales para la industria de los videojuegos y el cine.</p>
+    </div>
+
+    <div class="section-title">NUESTROS VALORES</div>
+    <div class="card">
+        <div class="img-frame img-right">
+            <img src="imagenes/Index/IndexImagen2.jpg">
+        </div>
+        <p>Nuestra cultura se fundamenta en la innovación constante y una excelencia técnica que se refleja en cada detalle de nuestras creaciones digitales. Nos apasiona la narrativa visual como motor para conectar con el espectador, basando nuestro éxito en una colaboración estrecha con nuestros clientes para materializar sus visiones. Todo esto lo logramos manteniendo una evolución continua, siempre a la vanguardia de las nuevas tecnologías para liderar el futuro del diseño y la animación.</p>
+    </div>
+
+    <div class="btn-group">
+        <a href="mision.html" class="btn">MISIÓN</a>
+        <a href="disenadores.html" class="btn">DISEÑADORES</a>
+        <a href="proyectos.html" class="btn">PROYECTOS</a>
+    </div>
+
+</div>
+
+<footer>
+    <a href="https://www.facebook.com" target="_blank" class="social-icon">
+        <img src="imagenes/Index/IndexFacebook.jpg">
+    </a>
+    <a href="https://www.instagram.com" target="_blank" class="social-icon">
+        <img src="imagenes/Index/IndexInstagram.jpg">
+    </a>
+    <a href="https://wa.me/" target="_blank" class="social-icon">
+        <img src="imagenes/Index/IndexWats.jpg">
+    </a>
+</footer>
+
+<script>
+    function openNav() {
+        document.getElementById("side-menu").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("side-menu").style.width = "0";
+    }
+</script>
+
+</body>
+</html>

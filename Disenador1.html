@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Jennifer Solis Vargas - Magic Company</title>
+
+<style>
+    *{margin: 0; padding: 0; box-sizing: border-box;}
+
+    body {
+        background-color: #f3e8ff;
+        background-image: url('imagenes/Index/IndexFondo.png'); 
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* --- MENÚ LATERAL --- */
+    #side-menu {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        background-color: rgba(157, 102, 255, 0.95);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    }
+
+    #side-menu a {
+        padding: 15px 30px;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        display: block;
+        transition: 0.3s;
+        font-weight: bold;
+    }
+
+    #side-menu a:hover {
+        background-color: white;
+        color: #9d66ff;
+    }
+
+    #side-menu .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    /* --- HEADER --- */
+    header { 
+        width: 100vw; 
+        margin-bottom: 20px;
+    }
+
+    .top-banner {
+        width: 100%;
+        height: 100px;
+        background-image: url('imagenes/Index/IndexFondocolores.png');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-back {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-right: 25px solid blue;
+        cursor: pointer;
+        background: none;
+        border-left: none;
+    }
+
+    .btn-menu {
+        position: absolute;
+        left: 20px;
+        bottom: -55px; 
+        width: 45px;
+        height: 45px;
+        background-color: white; 
+        border: none;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 5;
+    }
+
+    .btn-menu span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #9d66ff; 
+        border-radius: 2px;
+    }
+
+    /* --- CONTENIDO PERFIL --- */
+    #container {
+        width: 100%;
+        max-width: 500px; 
+        padding: 20px;
+        text-align: center;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-name {
+        color: #9d66ff;
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .profile-pic-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .profile-pic {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: none; /* Eliminado el borde blanco */
+        object-fit: cover;
+        box-shadow: none; /* Eliminada la sombra para evitar el efecto de doble línea */
+    }
+
+    .label-box {
+        background-color: #e5b6f5;
+        color: white;
+        display: inline-block;
+        padding: 8px 25px;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-size: 14px;
+        align-self: center; 
+    }
+
+    .info-card {
+        background-color: rgba(157, 102, 255, 0.8);
+        border-radius: 10px;
+        padding: 20px;
+        color: white;
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 13px;
+        line-height: 1.5;
+        width: 100%;
+    }
+
+    .row-info {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+    .small-card {
+        flex: 1;
+        background-color: rgba(157, 102, 255, 0.8);
+        border-radius: 10px;
+        padding: 15px;
+        color: white;
+        font-size: 12px;
+        text-align: left;
+    }
+
+    .small-card ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    /* --- CONTACTO --- */
+    .contact-card {
+        background-color: rgba(157, 102, 255, 0.8);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 40px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+        text-decoration: none;
+        color: white;
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .contact-icon {
+        width: 45px;
+        height: 45px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease; 
+    }
+
+    .contact-item:hover .contact-icon {
+        transform: scale(1.1);
+    }
+
+    .contact-icon img {
+        width: 25px;
+    }
+
+    footer {
+        width: 100%;
+        background-image: url('imagenes/Index/IndexFondocolores.png');
+        background-size: cover;
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .social-icon {
+        width: 60px;
+        height: 60px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease; 
+    }
+
+    .social-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .social-icon img { width: 70%; }
+
+</style>
+</head>
+
+<body>
+
+<div id="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">INICIO</a>
+    <a href="mision.html">MISIÓN</a>
+    <a href="disenadores.html">DISEÑADORES</a>
+    <a href="proyectos.html">PROYECTOS</a>
+</div>
+
+<header>
+    <div class="top-banner">
+        <button class="btn-back" onclick="history.back()"></button>
+        <button class="btn-menu" onclick="openNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<div id="container">
+
+    <div class="profile-name">Jennifer Solis Vargas</div>
+
+    <div class="profile-pic-container">
+        <img src="imagenes/Jennifer/JenniferFoto.png" class="profile-pic" alt="Jennifer Solis">
+    </div>
+
+    <div class="label-box">Sobre mí</div>
+    <div class="info-card">
+        Soy una estudiante de Animación y Arte Digital apasionada por el diseño, la creatividad y la expresión visual. Me motiva desarrollar ideas originales que conecten con las personas a través del arte y la tecnología. Busco seguir aprendiendo y aportar mi entusiasmo, responsabilidad y compromiso en cada proyecto que realice.
+    </div>
+
+    <div class="label-box">Experiencia</div>
+    <div class="info-card">
+        <strong>Asistente de Producción y Edición:</strong> Colaboré en proyectos de animación y diseño audiovisual, apoyando en la edición de video, colorización y dirección de arte.<br><br>
+        <strong>Diseñadora Conceptual:</strong> Diseño de storyboard, desarrollo de personajes y dirección artística para una animación emocionalmente inmersiva. Coordiné la narrativa visual y los efectos de iluminación y color para fortalecer la atmósfera de la historia.<br><br>
+        <strong>Animadora Digital:</strong> Participé en la conceptualización visual y diseño gráfico de un espacio sensorial para estudiantes basado en la relajación y la ambientación aromática. Realicé animaciones y presentaciones visuales que reflejan la identidad del concepto.
+    </div>
+
+    <div class="row-info">
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div class="label-box">Formación</div>
+            <div class="small-card">
+                Licenciatura en Animación y Arte Digital<br>
+                Universidad Tecnológica de México (UNITEC)<br>
+                2023 - Actualidad
+            </div>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div class="label-box">Herramientas</div>
+            <div class="small-card">
+                <ul>
+                    <li>• Adobe Illustrator</li>
+                    <li>• Adobe Photoshop</li>
+                    <li>• Adobe Premiere Pro</li>
+                    <li>• Autodesk Maya</li>
+                    <li>• Unity</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="label-box">Contacto</div>
+    <div class="contact-card">
+        <a href="mailto:vargasjenniffer007@gmail.com" class="contact-item">
+            <div class="contact-icon"><img src="imagenes/Jennifer/Correo.jpg" alt="Email"></div>
+            vargasjenniffer007@gmail.com
+        </a>
+        
+        <a href="https://wa.me/525634528259" target="_blank" class="contact-item">
+            <div class="contact-icon"><img src="imagenes/Index/IndexWats.jpg" alt="WhatsApp Personal"></div>
+            5634528259
+        </a>
+
+        <a href="https://www.instagram.com/jennigrunge/" target="_blank" class="contact-item">
+            <div class="contact-icon"><img src="imagenes/Index/IndexInstagram.jpg" alt="Instagram"></div>
+            jennigrunge
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    <a href="https://www.facebook.com" target="_blank" class="social-icon">
+        <img src="imagenes/Index/IndexFacebook.jpg">
+    </a>
+    <a href="https://www.instagram.com" target="_blank" class="social-icon">
+        <img src="imagenes/Index/IndexInstagram.jpg">
+    </a>
+    <a href="https://wa.me/" target="_blank" class="social-icon">
+        <img src="imagenes/Index/IndexWats.jpg">
+    </a>
+</footer>
+
+<script>
+    function openNav() {
+        document.getElementById("side-menu").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("side-menu").style.width = "0";
+    }
+</script>
+
+</body>
+</html>

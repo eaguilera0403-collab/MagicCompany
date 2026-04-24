@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Diseñadores - Magic Company</title>
+
+<style>
+    *{margin: 0; padding: 0; box-sizing: border-box;}
+
+    body {
+        background-color: #f3e8ff;
+        background-image: url('imagenes/Index/IndexFondo.png'); 
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* --- MENÚ LATERAL (PANEL) --- */
+    #side-menu {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        background-color: rgba(157, 102, 255, 0.95);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    }
+
+    #side-menu a {
+        padding: 15px 30px;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        display: block;
+        transition: 0.3s;
+        font-weight: bold;
+    }
+
+    #side-menu a:hover {
+        background-color: white;
+        color: #9d66ff;
+    }
+
+    #side-menu .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    /* --- HEADER ANCHO TOTAL --- */
+    header { 
+        width: 100vw; 
+        margin-bottom: 20px;
+    }
+
+    .top-banner {
+        width: 100%;
+        height: 100px;
+        background-image: url('imagenes/Index/IndexFondocolores.png');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Botón Regresar (Triángulo Azul) */
+    .btn-back {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-right: 25px solid blue;
+        cursor: pointer;
+        background: none;
+        border-left: none;
+    }
+
+    .btn-menu {
+        position: absolute;
+        left: 20px;
+        bottom: -55px; 
+        width: 45px;
+        height: 45px;
+        background-color: white; 
+        border: none;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 5;
+    }
+
+    .btn-menu span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #9d66ff; 
+        border-radius: 2px;
+    }
+
+    #container {
+        width: 100%;
+        max-width: 500px; 
+        padding: 20px;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .section-title {
+        color: #9d66ff;
+        display: block;
+        font-size: 35px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+    }
+
+    /* --- CARD DISEÑADORES (Imagen arriba del texto) --- */
+    .card {
+        background-color: rgba(157, 102, 255, 0.8);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 40px;
+        color: white;
+    }
+
+    .img-frame {
+        background: white;
+        padding: 8px;
+        border-radius: 5px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .img-frame img {
+        width: 100%;
+        display: block;
+    }
+
+    .card p {
+        font-size: 13px;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    /* --- GRUPO DE BOTONES DISEÑADORES --- */
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 50px;
+        align-items: center;
+    }
+
+    .btn {
+        background-color: #e5b6f5;
+        color: white;
+        text-decoration: none;
+        padding: 12px;
+        width: 250px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 16px;
+        box-shadow: 0 4px 0px #d49ce8;
+        text-transform: uppercase;
+    }
+
+    footer {
+        width: 100%;
+        background-image: url('imagenes/Index/IndexFondocolores.png');
+        background-size: cover;
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: auto;
+    }
+
+    .social-icon {
+        width: 60px;
+        height: 60px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover { transform: scale(1.1); }
+    .social-icon img { width: 70%; }
+
+</style>
+</head>
+
+<body>
+
+<div id="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">INICIO</a>
+    <a href="mision.html">MISIÓN</a>
+    <a href="disenadores.html">DISEÑADORES</a>
+    <a href="proyectos.html">PROYECTOS</a>
+</div>
+
+<header>
+    <div class="top-banner">
+        <button class="btn-back" onclick="history.back()"></button>
+        <button class="btn-menu" onclick="openNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<div id="container">
+
+    <div class="section-title">DISEÑADORES</div>
+
+    <div class="card">
+        <div class="img-frame">
+            <img src="imagenes/Disenadores/Disenadores.jpg">
+        </div>
+        <p>Como animadores y diseñadores, somos los encargados de infundir movimiento y alma a cada creación digital. Nuestra labor combina la precisión técnica con la sensibilidad artística para dar vida a personajes y entornos, transformando mallas estáticas en secuencias dinámicas que cuentan historias y generan emociones a través del ritmo, el tiempo y la fluidez.</p>
+    </div>
+
+    <div class="btn-group">
+        <a href="disenador1.html" class="btn">DISEÑADOR 1</a>
+        <a href="disenador2.html" class="btn">DISEÑADOR 2</a>
+        <a href="disenador3.html" class="btn">DISEÑADOR 3</a>
+        <a href="disenador4.html" class="btn">DISEÑADOR 4</a>
+    </div>
+
+</div>
+
+<footer>
+    <a href="https://www.facebook.com" target="_blank" class="social-icon">
+        <img src="imagenes/Index/IndexFacebook.jpg">
+    </a>
+    <a href="https://www.instagram.com" target="_blank" class="social-icon">
+        <img src="imagenes/Index/IndexInstagram.jpg">
+    </a>
+    <a href="https://wa.me/" target="_blank" class="social-icon">
+        <img src="imagenes/Index/IndexWats.jpg">
+    </a>
+</footer>
+
+<script>
+    function openNav() {
+        document.getElementById("side-menu").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("side-menu").style.width = "0";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Efectos Especiales</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #d6c7f5, #eee6ff);
+    }
+
+    /* --- MENÚ LATERAL (Sustituido por el diseño unificado) --- */
+    #side-menu {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        background-color: rgba(157, 102, 255, 0.95);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    #side-menu a {
+        padding: 15px 30px;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        display: block;
+        transition: 0.3s;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    #side-menu a:hover {
+        background-color: white;
+        color: #9d66ff;
+    }
+
+    /* La X con el tamaño del código de ejemplo */
+    #side-menu .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        color: white;
+        text-decoration: none;
+    }
+
+    /* --- HEADER --- */
+    .header{
+        position:relative;
+        height:130px;
+    }
+
+    .header img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
+
+    /* TRIANGULO */
+    .btn-back{
+        position:absolute;
+        top:15px;
+        left:15px;
+        width: 0;
+        height: 0;
+        border-top:15px solid transparent;
+        border-bottom:15px solid transparent;
+        border-right:25px solid blue;
+        cursor:pointer;
+        background: none;
+        border-left: none;
+    }
+
+    /* BOTÓN HAMBURGUESA (Sustituido por el tuyo) */
+    .btn-menu {
+        position: absolute;
+        left: 20px;
+        bottom: -55px; 
+        width: 45px;
+        height: 45px;
+        background-color: white; 
+        border: none;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 10;
+    }
+
+    .btn-menu span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #9d66ff; 
+        border-radius: 2px;
+    }
+
+    /* --- CONTENEDOR --- */
+    .container{
+        max-width:1000px;
+        margin:auto;
+        padding:20px;
+    }
+
+    h1{
+        text-align:center;
+        color:#b36bff;
+        font-size:34px;
+        margin:25px 0;
+    }
+
+    /* CARD */
+    .card{
+        background: linear-gradient(135deg,#9d66ff,#7a4ce0);
+        padding:25px;
+        color:white;
+        border-radius:10px;
+        margin:0 auto 30px auto;
+        text-align:center;
+        max-width:650px;
+    }
+
+    .card img{
+        width:100%;
+        max-width:320px;
+        border:6px solid white;
+        margin-top:20px;
+    }
+
+    .card p{
+        line-height:1.6;
+    }
+
+    /* BOTON */
+    .section-btn{
+        display:block;
+        margin:25px auto;
+        background:#8c5bff;
+        color:white;
+        padding:14px 20px;
+        font-weight:bold;
+        text-align:center;
+        width:240px;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+    /* GRID PROYECTOS */
+    .projects{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .project{
+        background: linear-gradient(135deg,#9d66ff,#7a4ce0);
+        padding:15px;
+        border-radius:10px;
+        color:white;
+        text-align:center;
+    }
+
+    .project img{
+        width:100%;
+        max-width:260px;
+        border:6px solid white;
+        margin-bottom:10px;
+    }
+
+    .project p{
+        font-size:14px;
+        line-height:1.5;
+    }
+
+    @media(min-width:768px){
+        .projects{
+            grid-template-columns:repeat(2,1fr);
+        }
+    }
+
+    /* --- FOOTER --- */
+    .footer{
+        background-image:url('imagenes/EfectosEspeciales/FondoMosaico2.png');
+        background-size:cover;
+        background-position:center;
+        height:130px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .icons{
+        display:flex;
+        gap:25px;
+    }
+
+    .icons a {
+        text-decoration: none;
+        display: flex;
+        transition: 0.3s;
+    }
+
+    .icons a:hover {
+        transform: scale(1.1);
+    }
+
+    .icons img{
+        width:55px;
+    }
+</style>
+</head>
+
+<body>
+
+<div id="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">INICIO</a>
+    <a href="mision.html">MISIÓN</a>
+    <a href="disenadores.html">DISEÑADORES</a>
+    <a href="proyectos.html">PROYECTOS</a>
+</div>
+
+<div class="header">
+    <img src="imagenes/EfectosEspeciales/FondoMosaico.png">
+
+    <button class="btn-back" onclick="history.back()"></button>
+
+    <button class="btn-menu" onclick="openNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</div>
+
+<div class="container">
+
+    <h1>EFECTOS ESPECIALES</h1>
+
+    <div class="card">
+        <p>
+        Diseñamos efectos visuales (VFX) dinámicos que dan vida a la acción mediante sistemas de partículas y simulaciones de energía. Cada efecto está desarrollado para potenciar la inmersión, logrando que cada interacción dentro del entorno virtual sea visualmente impactante y fluida.
+        </p>
+        <img src="imagenes/EfectosEspeciales/FondoVFX.png">
+    </div>
+
+    <div class="section-btn">NUESTROS PROYECTOS</div>
+
+    <div class="projects">
+
+        <div class="project">
+            <img src="imagenes/EfectosEspeciales/FondoMesa.png">
+            <p>
+            Simulación de física de telas mediante sistemas de partículas y fuerzas de viento, logrando un movimiento fluido y orgánico que reacciona de forma realista al entorno digital.
+            </p>
+        </div>
+
+        <div class="project">
+            <img src="imagenes/EfectosEspeciales/FondoVino.png">
+            <p>
+            Simulación de fluidos mediante sistemas de partículas y fuerzas físicas, logrando un flujo dinámico y orgánico que interactúa de forma realista al caer sobre un objeto en el entorno digital.
+            </p>
+        </div>
+
+        <div class="project">
+            <img src="imagenes/EfectosEspeciales/FondoNoche.png">
+            <p>
+            Creación de un escenario místico para la incorporación de un videojuego de fantasía, donde se aplican efectos VFX como fuego representado en las antorchas, sistema de partículas con gravedad en las rocas, así como el uso de creación de humo para enfatizar la ambientación de la escena.
+            </p>
+        </div>
+
+        <div class="project">
+            <img src="imagenes/EfectosEspeciales/FondoCementerio.png">
+            <p>
+            Propuesta de escenario de cementerio en una ambientación nocturna con una ligera lluvia y bruma (neblina), creando todo desde maya e incorporando efectos VFX para un mejor efecto visual.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <div class="icons">
+        <a href="https://www.facebook.com" target="_blank">
+            <img src="imagenes/EfectosEspeciales/LogoFb.png">
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="imagenes/EfectosEspeciales/LogoIG.png">
+        </a>
+        <a href="https://api.whatsapp.com/" target="_blank">
+            <img src="imagenes/EfectosEspeciales/LogoWa.png">
+        </a>
+    </div>
+</div>
+
+<script>
+function openNav() {
+    document.getElementById("side-menu").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("side-menu").style.width = "0";
+}
+</script>
+
+</body>
+</html>

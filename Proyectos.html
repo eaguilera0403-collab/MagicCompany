@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Proyectos - Magic Company</title>
+
+<style>
+    *{margin: 0; padding: 0; box-sizing: border-box;}
+
+    body {
+        background-color: #f3e8ff;
+        background-image: url('imagenes/Index/IndexFondo.png'); 
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* --- MENÚ LATERAL (PANEL) --- */
+    #side-menu {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        background-color: rgba(157, 102, 255, 0.95);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    }
+
+    #side-menu a {
+        padding: 15px 30px;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        display: block;
+        transition: 0.3s;
+        font-weight: bold;
+    }
+
+    #side-menu a:hover {
+        background-color: white;
+        color: #9d66ff;
+    }
+
+    #side-menu .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    #container {
+        width: 100%;
+        max-width: 500px; 
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* --- HEADER AJUSTADO AL ANCHO TOTAL --- */
+    header { 
+        width: 100vw; /* Ocupa todo el ancho de la ventana */
+        margin-bottom: 20px;
+    }
+
+    .top-banner {
+        width: 100%;
+        height: 100px;
+        background-image: url('imagenes/Index/IndexFondocolores.png');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Botón Regresar (Triángulo) */
+    .btn-back {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-right: 25px solid blue;
+        cursor: pointer;
+        background: none;
+        border-left: none;
+    }
+
+    .btn-menu {
+        position: absolute;
+        left: 20px;
+        bottom: -55px; 
+        width: 45px;
+        height: 45px;
+        background-color: white; 
+        border: none;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 5;
+    }
+
+    .btn-menu span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #9d66ff; 
+        border-radius: 2px;
+    }
+
+    .section-title {
+        background-color: transparent;
+        color: #9d66ff;
+        display: block;
+        font-size: 35px;
+        font-weight: bold;
+        margin-top: 60px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    /* --- CARD PROYECTOS --- */
+    .card {
+        background-color: rgba(157, 102, 255, 0.8);
+        border-radius: 10px;
+        padding: 25px;
+        margin-bottom: 30px;
+        color: white;
+    }
+
+    .card p {
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .img-frame-full {
+        background: white;
+        padding: 8px;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .img-frame-full img {
+        width: 100%;
+        display: block;
+    }
+
+    /* --- GRUPO DE BOTONES --- */
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 50px;
+        align-items: center;
+    }
+
+    .btn {
+        background-color: #e5b6f5;
+        color: #6a0dad;
+        text-decoration: none;
+        padding: 12px;
+        width: 280px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 16px;
+        box-shadow: 0 4px 0px #d49ce8;
+    }
+
+    footer {
+        width: 100%;
+        background-image: url('imagenes/Index/IndexFondocolores.png');
+        background-size: cover;
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .social-icon {
+        width: 60px;
+        height: 60px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover { transform: scale(1.1); }
+    .social-icon img { width: 70%; }
+
+</style>
+</head>
+
+<body>
+
+<div id="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">INICIO</a>
+    <a href="mision.html">MISIÓN</a>
+    <a href="disenadores.html">DISEÑADORES</a>
+    <a href="proyectos.html">PROYECTOS</a>
+</div>
+
+<header>
+    <div class="top-banner">
+        <button class="btn-back" onclick="history.back()"></button>
+        <button class="btn-menu" onclick="openNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<div id="container">
+
+    <div class="section-title">PROYECTOS</div>
+
+    <div class="card">
+        <p>Damos vida a mundos digitales mediante un diseño de personajes con identidad propia y concept art que define atmósferas únicas. Llevamos estas ideas a la tridimensionalidad con un modelado 3D optimizado de alta calidad, coronando cada proyecto con efectos visuales (VFX) de impacto que fusionan arte y tecnología en una experiencia cinematográfica.</p>
+        
+        <div class="img-frame-full">
+            <img src="imagenes/Proyectos/ProyectosImagen1.jpg">
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <a href="efectos_especiales.html" class="btn">EFECTOS ESPECIALES</a>
+        <a href="diseno_personajes.html" class="btn">DISEÑO DE PERSONAJES</a>
+        <a href="concept_art.html" class="btn">CONCEPT ART</a>
+        <a href="modelado_3d.html" class="btn">MODELADO 3D</a>
+    </div>
+
+</div>
+
+<footer>
+    <a href="https://www.facebook.com" target="_blank" class="social-icon">
+        <img src="imagenes/Index/IndexFacebook.jpg">
+    </a>
+    <a href="https://www.instagram.com" target="_blank" class="social-icon">
+        <img src="imagenes/Index/IndexInstagram.jpg">
+    </a>
+    <a href="https://wa.me/" target="_blank" class="social-icon">
+        <img src="imagenes/Index/IndexWats.jpg">
+    </a>
+</footer>
+
+<script>
+    function openNav() {
+        document.getElementById("side-menu").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("side-menu").style.width = "0";
+    }
+</script>
+
+</body>
+</html>
